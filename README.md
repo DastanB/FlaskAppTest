@@ -5,9 +5,11 @@ This little app is designed to receive mp4 video and detect objects with provide
 Entrypoint URL: 'http://127.0.0.1:<port>/objects/'
 
 Form-Data: 
-```json{
+```json
+{
   "video": file.mp4
-}```
+}
+```
 
 Success response 200:
 {
