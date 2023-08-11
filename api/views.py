@@ -17,7 +17,6 @@ def get_objects_api():
     if not success:
         return jsonify({'error': 'Wrong file format.'}), 400
 
-    store_processor(filename)
-    objects = service.get_objects()
+    results = store_processor(filename)
 
-    return jsonify({'result': objects}), 200
+    return jsonify({'results': results}), 200

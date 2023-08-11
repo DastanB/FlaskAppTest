@@ -1,7 +1,5 @@
 import os
 
-from ast import literal_eval
-
 
 class GetResultService:
     """
@@ -28,16 +26,3 @@ class GetResultService:
             success = True
 
         return success, self._video.filename
-
-    def get_objects(self):
-        """
-        This method converts data from permanent txt file to list of results
-        :return: List
-        """
-        with open('result.txt') as file:
-            for line in file.readlines():
-                self._objects.append(literal_eval(line))
-
-        os.remove('result.txt')
-
-        return self._objects

@@ -64,7 +64,7 @@ class DetectionService:
         """
         max_frames = 5
         frames = 0
-
+        objects = []
         while True:
             has_frame, image = processed_video.read()
 
@@ -75,8 +75,7 @@ class DetectionService:
             instances = predictions.get('instances')
             results = self._get_scores_from_instances(instances)
 
-            with open('result.txt', 'a') as file:
-                file.write(str(results) + '\n')
+            objects.append(results)
 
             # FOR TEST ONLY
             frames += 1
@@ -84,6 +83,7 @@ class DetectionService:
                 break
 
         processed_video.release()
+        return objects
 
     def process_frames(self, group_number, processed_video):
         """
@@ -96,6 +96,4 @@ class DetectionService:
         frames_per_cpu = total_frames / self.cpu_count
         processed_video.set(cv2.CAP_PROP_POS_FRAMES, frames_per_cpu * group_number)
 
-        self._read_frames(processed_video)
-
-        return self._objects
+        return self._read_frames(processed_video)
