@@ -12,6 +12,7 @@ Form-Data:
 ```
 
 Success response 200:
+```json
 {
   "results": [
     [{"person": 0.98}, {"cat": 0.95}],
@@ -19,6 +20,8 @@ Success response 200:
     [{"person": 0.98}, {"cat": 0.95}]
   ]
 }
+```
 
-Flow
-<img width="744" alt="Screen Shot 2023-08-11 at 20 14 55" src="https://github.com/DastanB/FlaskAppTest/assets/22112395/a638c684-5909-4848-a217-0545e97da453">
+# Flow
+
+<img width="820" alt="Screen Shot 2023-08-11 at 20 25 36" src="https://github.com/DastanB/FlaskAppTest/assets/22112395/20824d4d-d6f3-4c87-8dd3-b8318e65660b">
