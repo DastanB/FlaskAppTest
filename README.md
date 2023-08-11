@@ -1,4 +1,4 @@
-# FlaskAppTest
+<img width="820" alt="Screen Shot 2023-08-11 at 21 52 48" src="https://github.com/DastanB/FlaskAppTest/assets/22112395/91b2b646-66e3-4ea5-8a0e-edaf5c5d7825"># FlaskAppTest
 
 This little app is designed to receive mp4 video and detect objects with provided propability accuracy.
 
@@ -45,5 +45,6 @@ Success response 200:
 
 # Flow
 
-<img width="820" alt="Screen Shot 2023-08-11 at 20 28 11" src="https://github.com/DastanB/FlaskAppTest/assets/22112395/c7592112-0797-4434-9d5c-16a302b187bd">
+<img width="820" alt="Screen Shot 2023-08-11 at 21 53 06" src="https://github.com/DastanB/FlaskAppTest/assets/22112395/8c5758a6-884e-4da9-abde-c2a9ef01b6fe">
+
 
