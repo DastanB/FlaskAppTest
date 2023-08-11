@@ -1,12 +1,10 @@
-# import common libraries
 import os
 import cv2
-import sys
 
 # import multiprocessing utilities
 from multiprocessing import Pool, cpu_count
 
-from api.services import DetectionService
+from api.services.detection_service import DetectionService
 
 
 def store_objects(group_number, filename):
