@@ -1,5 +1,7 @@
 import os
 
+import cv2
+
 
 class GetResultService:
     """
@@ -14,6 +16,17 @@ class GetResultService:
     def _is_allowed_extension(self):
         return self._video.filename.split('.')[-1] == self._allowed_extension
 
+    @staticmethod
+    def _is_allowed_duration(filename):
+        video = cv2.VideoCapture(f'{os.path.join("static", filename)}')
+        duration = int(video.get(cv2.CAP_PROP_FRAME_COUNT)) / video.get(cv2.CAP_PROP_FPS)
+        if duration > 5:
+            # no more than 5 sec
+            os.remove(os.path.join("static", filename))
+            return False
+
+        return True
+
     def save(self):
         """
         This method saves video to static folder
@@ -21,8 +34,14 @@ class GetResultService:
         """
         if not self._is_allowed_extension():
             success = False
+            response = 'Not allowed extension.'
         else:
-            self._video.save(os.path.join("static", self._video.filename))
             success = True
+            response = ''
+            self._video.save(os.path.join("static", self._video.filename))
 
-        return success, self._video.filename
+        if not self._is_allowed_duration(self._video.filename):
+            success = False
+            response = 'Duration of the video is more than 5 sec.'
+
+        return success, response, self._video.filename

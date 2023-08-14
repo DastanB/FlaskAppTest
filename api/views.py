@@ -12,10 +12,10 @@ def get_objects_api():
         return jsonify({'error': 'Video was not provided.'}), 400
 
     service = GetResultService(request.files.get('video'))
-    success, filename = service.save()
+    success, response, filename = service.save()
 
     if not success:
-        return jsonify({'error': 'Wrong file format.'}), 400
+        return jsonify({'error': response}), 400
 
     results = store_processor(filename)
 
