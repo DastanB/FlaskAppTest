@@ -20,7 +20,7 @@ class GetResultService:
     def _is_allowed_duration(filename):
         video = cv2.VideoCapture(f'{os.path.join("static", filename)}')
         duration = int(video.get(cv2.CAP_PROP_FRAME_COUNT)) / video.get(cv2.CAP_PROP_FPS)
-        if duration > 5:
+        if int(duration) > 5:
             # no more than 5 sec
             os.remove(os.path.join("static", filename))
             return False
